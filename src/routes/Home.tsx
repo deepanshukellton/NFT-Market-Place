@@ -31,7 +31,7 @@ const Home = () => {
         <div>
           <Container >
             <Row>
-              {allNft.map((nft) => (
+              {allNft.map((nft:any) => (
                 <Card className="nft-card" key={nft.tokenId} style={{ width: '30rem' }}>
                   <Card.Img variant="top" src={nft.url} />
                   <Card.Body className="card-body">
@@ -78,7 +78,7 @@ const Home = () => {
    
     
   return (
-<div> {allNft ? ShowNft() : ShowHomePage()}</div>
+<div> { ShowHomePage()}</div>
    
   
   );

@@ -7,12 +7,12 @@ import Footer from './components/Footer';
 
 
 
-const AppRouter = ()=>(
+const AppRouter : React.FC = ()=>(
     <BrowserRouter>
         <div>
         <Header />
             <Routes>
-                <Route path="/" element={<h2></h2>} />
+                <Route path="/" element={<Home/>} />
                 
                 
             </Routes>
