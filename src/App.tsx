@@ -19,7 +19,7 @@ const AppRouter : React.FC = ()=>(
                 
                 
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     </BrowserRouter>
 )

@@ -9,13 +9,13 @@ import { Link } from "react-router-dom"
 import { checkWalletIsConnected, connectWalletHandler } from "../components/LoadBlockchain"
 
 
-interface Data {
+interface NftData {
     itemName: string,
     description:string,
-    url:string,
+    url:string|undefined,
     TokenStandard:string,
     BlockChain:string,
-    tokenCreator:string,
+    tokenCreator:string|null,
     forSale:boolean
 }
 
@@ -73,7 +73,7 @@ const Create = () => {
     }
 
 
-    const jsonHandler = (data) => {
+    const jsonHandler = (data : any) => {
         const jsonData = JSON.stringify(data);
         try {
             axios.post(jsonUrl, jsonData, {
@@ -96,9 +96,9 @@ const Create = () => {
         }
     }
 
-    const uploadHandler = async (e :React.FormEvent<EventTarget>) => {
+    const uploadHandler = async (e :any) => {
         e.preventDefault();
-        let data: Data = {
+        let data: NftData = {
             itemName:e.target.item.value.trim(),
             description:e.target.description.value,
             url:fileUrl,
@@ -110,9 +110,11 @@ const Create = () => {
        
         await jsonHandler(data);
     }
+
     const connectWalletButton = () => {
         const connectWallet = async () => {
             let account = await connectWalletHandler();
+            console.log(account);
             setCurrentAccount(account)
         }
         return (
